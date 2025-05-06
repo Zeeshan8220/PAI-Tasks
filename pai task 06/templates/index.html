@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Profiling</title>
+</head>
+<body>
+    <h2>Upload an Image for Face Profiling</h2>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="image">
+        <button type="submit">Upload</button>
+    </form>
+
+    {% if measurements %}
+        <h3>Facial Measurements:</h3>
+        <ul>
+            {% for key, value in measurements.items() %}
+                <li><strong>{{ key }}:</strong> {{ value }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
